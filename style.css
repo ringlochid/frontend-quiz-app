@@ -1,0 +1,109 @@
+:root {
+    --bg-start-menu-light: var(--colors-grey-50, #F4F6FA);
+    --bg-start-menu-dark: var(--colors-blue-900, #313E51);
+}
+
+body {
+    margin: 0px;
+}
+
+main {
+    margin: 0px;
+    display: grid;
+    place-items: center;
+}
+
+main.lightmod{
+    background-color: var(--bg-start-menu-light);
+    background-image: url(./assets/images/pattern-background-desktop-light.svg)
+}
+
+main.darkmod{
+    background-color: var(--bg-start-menu-dark);
+    background-image: url(./assets/images/pattern-background-desktop-dark.svg);
+}
+
+.start-menu {
+    display: flex;
+    align-items: flex-start;
+    gap: 8rem;
+}
+
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-600, 3rem);
+}
+
+.welcome-section p{
+    color: var(--colors-grey-500, #626C7F);
+    /* Text Preset 6 - Rubik - 20px - 150% Line Height - 0px Line Spacing */
+    font-family: Rubik;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 150%; /* 1.875rem */
+}
+
+.welcome-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-100, 0.5rem);
+}
+
+.welcome-text h1 {
+    color: var(--colors-blue-900, #313E51);
+    /* Text Preset 2 (Light) - Rubik - 64 px - 100% Line Height - 0px Line Spacing */
+    font-family: Rubik;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%; /* 4rem */
+}
+
+.welcome-text h2 {
+    color: var(--colors-blue-900, #313E51);
+    /* Text Preset 2 (Medium) - Rubik - 64px - 100% Line Height - 0px Line Spacing */
+    font-family: Rubik;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 4rem */
+}
+
+.subject-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-200, 1rem);
+    flex-shrink: 0;
+}
+
+
+.subject-item {
+    display: flex;
+    padding: var(--spacing-300, 1.5rem);
+    align-items: center;
+    gap: var(--spacing-400, 2rem);
+    align-self: stretch;
+    border-radius: 1.5rem;
+    background: var(--colors-white, #FFF);
+    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+}
+
+.subject-icon-container {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.subject-name {
+    color: var(--colors-blue-900, #313E51);
+    /* Text Preset 4 - Rubik - 28px - 100% Line Height - 0px Line Spacing */
+    font-family: Rubik;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 1.75rem */
+}
