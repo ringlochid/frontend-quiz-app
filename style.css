@@ -1,109 +1,180 @@
 :root {
-    --bg-start-menu-light: var(--colors-grey-50, #F4F6FA);
-    --bg-start-menu-dark: var(--colors-blue-900, #313E51);
+    --font-family-base: 'Rubik', system-ui, -apple-system, sans-serif;
+    --space-100: 0.5rem;
+    --space-200: 1rem;
+    --space-300: 1.5rem;
+    --space-400: 2rem;
+    --space-600: 3rem;
+    --space-800: 8rem;
+    --radius-lg: 1.5rem;
+    --shadow-elevated: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+    --color-bg-light: #F4F6FA;
+    --color-bg-dark: #313E51;
+    --color-surface: #FFFFFF;
+    --color-text: #313E51;
+    --color-text-muted: #626C7F;
+    --color-text-on-dark: #FFFFFF;
+    --color-text-muted-on-dark: #ABC1E1;
 }
 
 body {
-    margin: 0px;
+    display: grid;
+    margin: 0;
+    height: 100dvh;
+    place-items: center;
+    font-family: var(--font-family-base);
 }
 
 main {
-    margin: 0px;
+    margin: 0;
     display: grid;
     place-items: center;
+    height: 100dvh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
+    color: var(--color-text);
 }
 
-main.lightmod{
-    background-color: var(--bg-start-menu-light);
-    background-image: url(./assets/images/pattern-background-desktop-light.svg)
+main.lightmod {
+    background-color: var(--color-bg-light);
+    background-image: url(./assets/images/pattern-background-desktop-light.svg);
 }
 
-main.darkmod{
-    background-color: var(--bg-start-menu-dark);
+main.darkmod {
+    background-color: var(--color-bg-dark);
     background-image: url(./assets/images/pattern-background-desktop-dark.svg);
+    color: var(--color-text-on-dark);
 }
 
 .start-menu {
     display: flex;
     align-items: flex-start;
-    gap: 8rem;
+    width: min(90dvh, 72.3125rem);
+    gap: var(--space-800);
 }
 
 .welcome-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--spacing-600, 3rem);
+    gap: var(--space-600);
 }
 
-.welcome-section p{
-    color: var(--colors-grey-500, #626C7F);
-    /* Text Preset 6 - Rubik - 20px - 150% Line Height - 0px Line Spacing */
-    font-family: Rubik;
+.welcome-section p {
+    margin: 0;
+    padding: 0;
+    color: var(--color-text-muted);
     font-size: 1.25rem;
     font-style: italic;
     font-weight: 400;
-    line-height: 150%; /* 1.875rem */
+    line-height: 150%;
+}
+
+main.darkmod .welcome-section p {
+    color: var(--color-text-muted-on-dark);
 }
 
 .welcome-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--spacing-100, 0.5rem);
+    gap: var(--space-100);
 }
 
 .welcome-text h1 {
-    color: var(--colors-blue-900, #313E51);
-    /* Text Preset 2 (Light) - Rubik - 64 px - 100% Line Height - 0px Line Spacing */
-    font-family: Rubik;
+    margin: 0;
+    padding: 0;
+    color: var(--color-text);
     font-size: 4rem;
     font-style: normal;
     font-weight: 300;
-    line-height: 100%; /* 4rem */
+    line-height: 100%;
 }
 
 .welcome-text h2 {
-    color: var(--colors-blue-900, #313E51);
-    /* Text Preset 2 (Medium) - Rubik - 64px - 100% Line Height - 0px Line Spacing */
-    font-family: Rubik;
+    margin: 0;
+    padding: 0;
+    color: var(--color-text);
     font-size: 4rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 100%; /* 4rem */
+    line-height: 100%;
 }
 
 .subject-list {
+    width: min(100%, 35.25rem);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--spacing-200, 1rem);
+    gap: var(--space-200);
     flex-shrink: 0;
 }
 
-
 .subject-item {
+    width: 100%;
     display: flex;
-    padding: var(--spacing-300, 1.5rem);
+    padding: var(--space-300);
     align-items: center;
-    gap: var(--spacing-400, 2rem);
+    gap: var(--space-400);
     align-self: stretch;
-    border-radius: 1.5rem;
-    background: var(--colors-white, #FFF);
-    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-elevated);
 }
 
 .subject-icon-container {
     width: 3.5rem;
     height: 3.5rem;
+    border-radius: 15%;
+}
+
+.subject-icon-container.html {
+    background-color: #FFF5ED;
+}
+
+.subject-icon-container.css {
+    background-color: #E0FDEF;
+}
+
+.subject-icon-container.js {
+    background-color: #EBF0FF;
+}
+
+.subject-icon-container.accessibility {
+    background-color: #F6E7FF;
+}
+
+.subject-icon {
+    height: 100%;
+    width: 100%;
 }
 
 .subject-name {
-    color: var(--colors-blue-900, #313E51);
-    /* Text Preset 4 - Rubik - 28px - 100% Line Height - 0px Line Spacing */
-    font-family: Rubik;
+    color: var(--color-text);
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 100%; /* 1.75rem */
+    line-height: 100%;
+}
+
+
+@media (max-width: 900px) {
+  .start-menu {
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 48rem;
+    width: 100%;
+    padding-inline: 1.5rem;
+    margin-inline: auto;
+  }
+
+  .subject-list {
+    width: 100%;
+  }
+
+  .welcome-section {
+    max-width: 36rem;
+  }
 }
