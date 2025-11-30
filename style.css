@@ -17,20 +17,27 @@
     --color-text-muted-on-dark: #ABC1E1;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
-    display: grid;
     margin: 0;
-    height: 100dvh;
-    place-items: center;
+    min-height: 100vh;
     font-family: var(--font-family-base);
+    background-color: var(--color-bg-light);
 }
 
 main {
     margin: 0;
-    display: grid;
-    place-items: center;
-    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     width: 100%;
+    padding: clamp(2rem, 6vw, 4rem);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top right;
@@ -51,7 +58,7 @@ main.darkmod {
 .start-menu {
     display: flex;
     align-items: flex-start;
-    width: min(90dvh, 72.3125rem);
+    width: min(90vw, 72.3125rem);
     gap: var(--space-800);
 }
 
