@@ -47,14 +47,20 @@ main {
 }
 
 main.lightmod {
+    --color-text: #313E51;
+    --color-text-muted: #626C7F;
+    --color-surface: #FFFFFF;
     background-color: var(--color-bg-light);
     background-image: url(./assets/images/pattern-background-desktop-light.svg);
 }
 
 main.darkmod {
+    --color-text: var(--color-text-on-dark);
+    --color-text-muted: var(--color-text-muted-on-dark);
+    --color-surface: #3b4d66;
     background-color: var(--color-bg-dark);
     background-image: url(./assets/images/pattern-background-desktop-dark.svg);
-    color: var(--color-text-on-dark);
+    color: var(--color-text);
 }
 
 .start-menu {
@@ -79,10 +85,6 @@ main.darkmod {
     font-style: italic;
     font-weight: 400;
     line-height: 150%;
-}
-
-main.darkmod .welcome-section p {
-    color: var(--color-text-muted-on-dark);
 }
 
 .welcome-text {
@@ -137,7 +139,7 @@ main.darkmod .welcome-section p {
     transition: all 1s;
 }
 
-main.darkmod .subject-iem {
+main.darkmod .subject-item {
     background-color: #3b4d66;
 }
 
@@ -157,6 +159,8 @@ button.subject-item:focus {
 
 
 .subject-icon-container {
+    display: grid;
+    place-items: center;
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 15%;
@@ -179,8 +183,8 @@ button.subject-item:focus {
 }
 
 .subject-icon {
-    height: 100%;
-    width: 100%;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .subject-name {
