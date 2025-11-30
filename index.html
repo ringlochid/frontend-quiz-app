@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
   
   <title>Frontend Mentor | Frontend quiz app</title>
 </head>
@@ -20,11 +20,11 @@
       <div class="mod-toggle">
         <input id="theme-toggle" type="checkbox" name="toggle" aria-label="Toggle theme" />
         <label for="theme-toggle" class="toggle">
-          <img src="./assets/images/icon-sun-light.svg" class="toggle__icon sun icon-light" aria-hidden="true">
-          <img src="./assets/images/icon-sun-dark.svg"  class="toggle__icon sun icon-dark"  aria-hidden="true">
+          <img src="./assets/images/icon-sun-light.svg" class="toggle__icon sun icon-dark" aria-hidden="true">
+          <img src="./assets/images/icon-sun-dark.svg"  class="toggle__icon sun icon-light"  aria-hidden="true">
           <span class="toggle__thumb"></span>
-          <img src="./assets/images/icon-moon-light.svg" class="toggle__icon lunar icon-light" aria-hidden="true">
-          <img src="./assets/images/icon-moon-dark.svg"  class="toggle__icon lunar icon-dark"  aria-hidden="true">
+          <img src="./assets/images/icon-moon-light.svg" class="toggle__icon lunar icon-dark" aria-hidden="true">
+          <img src="./assets/images/icon-moon-dark.svg"  class="toggle__icon lunar icon-light"  aria-hidden="true">
         </label>
       </div>
     </div>
@@ -37,30 +37,30 @@
         <p>Pick a subject to get started.</p>
       </div>
       <div class="subject-list">
-        <div class="subject-item">
+        <button class="subject-item">
           <div class="subject-icon-container html">
             <img class="subject-icon" src="./assets/images/icon-html.svg" alt="icon-html">
           </div>
           <div class="subject-name">HTML</div>
-        </div>
-        <div class="subject-item">
+        </button>
+        <button class="subject-item">
           <div class="subject-icon-container css">
             <img class="subject-icon" src="./assets/images/icon-css.svg" alt="icon-css">
           </div>
           <div class="subject-name">CSS</div>
-        </div>
-        <div class="subject-item">
+        </button>
+        <button class="subject-item">
           <div class="subject-icon-container js">
             <img class="subject-icon" src="./assets/images/icon-js.svg" alt="icon-js">
           </div>
           <div class="subject-name">JavaScript</div>
-        </div>
-        <div class="subject-item">
+        </button>
+        <button class="subject-item">
           <div class="subject-icon-container accessibility">
             <img class="subject-icon" src="./assets/images/icon-accessibility.svg" alt="icon-accessibility">
           </div>
           <div class="subject-name">Accessibility</div>
-        </div>
+        </button>
       </div>
     </div>
   </main>

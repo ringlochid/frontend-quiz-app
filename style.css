@@ -43,6 +43,7 @@ main {
     background-size: cover;
     background-position: top right;
     color: var(--color-text);
+    transition: all 0.5s ease-in-out;
 }
 
 main.lightmod {
@@ -121,6 +122,8 @@ main.darkmod .welcome-section p {
 }
 
 .subject-item {
+    appearance: none;
+    border: 0px;
     width: 100%;
     display: flex;
     padding: var(--space-300);
@@ -130,7 +133,28 @@ main.darkmod .welcome-section p {
     border-radius: var(--radius-lg);
     background: var(--color-surface);
     box-shadow: var(--shadow-elevated);
+    cursor: pointer;
+    transition: all 1s;
 }
+
+main.darkmod .subject-iem {
+    background-color: #3b4d66;
+}
+
+button.subject-item:hover {
+    background-color: rgba(220, 218, 218, 0.687);
+}
+
+button.subject-item:focus {
+    animation: bottom-down 0.4s ease forwards;;
+}
+
+@keyframes bottom-down {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(0.25rem); }
+  100% { transform: translateY(0); }
+}
+
 
 .subject-icon-container {
     width: 3.5rem;
@@ -201,16 +225,13 @@ main.darkmod .welcome-section p {
 }
 
 .mod-toggle {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: var(--space-200);
     color: var(--color-text);
     font-weight: 500;
-}
-
-.mod-toggle:hover{
-    cursor: pointer;
 }
 
 .mod-toggle input[type="checkbox"] {
@@ -228,6 +249,10 @@ main.darkmod .welcome-section p {
     height: 1.25rem;
 }
 
+.toggle__icon:hover {
+    cursor: pointer;
+}
+
 .toggle__icon.lunar {
     position: absolute;
     right: -2rem;
@@ -235,10 +260,12 @@ main.darkmod .welcome-section p {
     height: 1.25rem;
 }
 
-main.lightmod .icon-dark { display: inline; }
-main.lightmod .icon-light { display: none; }
-main.darkmod .icon-dark { display: inline; }
-main.darkmod .icon-light { display: none; }
+main.lightmod .icon-light { display: inline; }
+main.lightmod .icon-dark  { display: none;  }
+
+main.darkmod .icon-light  { display: none;  }
+main.darkmod .icon-dark   { display: inline; }
+
 
 .toggle {
     position: relative;
@@ -267,11 +294,31 @@ main.darkmod .icon-light { display: none; }
     transition: transform 0.2s ease-in-out;
 }
 
+.toggle:hover {
+    cursor: pointer;
+}
+
 .mod-toggle input[type="checkbox"]:checked + .toggle::after {
     transform: translateX(1.25rem);
 }
 
-.toggle:focus-visible {
-    outline: 2px solid #306AFF;
-    outline-offset: 4px;
+.mod-toggle input[type="checkbox"]:checked + .toggle::before {
+    animation: opacity-on 0.4s ease forwards;
 }
+
+.mod-toggle input[type="checkbox"]:not(:checked) + .toggle::before {
+    animation: opacity-off 0.4s ease forwards;
+}
+
+@keyframes opacity-on {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes opacity-off {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
