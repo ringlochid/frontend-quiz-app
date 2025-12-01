@@ -477,8 +477,7 @@ main.darkmod .option-letter {
     color: #ffffff;
 }
 
-.submit-btn,
-.next-btn {
+.submit-btn {
     margin-top: var(--space-200);
     align-self: stretch;
     padding: var(--space-400);

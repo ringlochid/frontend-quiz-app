@@ -91,6 +91,12 @@ let currentIndex = 0;
 let totalQuestions = 0;
 let score = 0;
 
+// submit or next mode?
+let hasSubmittedCurrent = false;
+
+// last question?
+let islastquestion = false;
+
 function show_quiz_screen() {
     start_menu.style.display = 'none';
     quiz_wrapper.classList.remove('deactivated');
@@ -102,8 +108,21 @@ function show_start_screen() {
 }
 
 function clear_selected_answer() {
-    const checked = question_form.querySelector('input[type="radio"]:checked');
-    if (checked) checked.checked = false;
+    answer_option_labels.forEach(label => {
+        label.style.cursor = 'pointer';
+        const radio = label.querySelector('input[type="radio"]');
+        if (radio.checked){radio.checked = false;}
+        radio.disabled = false;
+    });
+}
+
+function reset_answer_states() {
+  answer_option_labels.forEach(label => {
+        const iconSlot = label.querySelector('.answer-icon-slot');
+        if (iconSlot) {
+            iconSlot.classList.remove('correct', 'error');
+    }
+  });
 }
 
 function render_question() {
@@ -123,7 +142,11 @@ function render_question() {
         textSpan.textContent = optText;
         radio.value = optText;
         radio.checked = false;
-  });
+    });
+
+    reset_answer_states();
+    hasSubmittedCurrent = false;
+    submit_button.textContent = 'Submit Answer';
 }
 
 function get_selected_answer() {
@@ -131,23 +154,42 @@ function get_selected_answer() {
     return checked ? checked.value : null;
 }
 
-function show_required(){
+function show_required() {
+    alert('Please select an answer first.');
 }
 
-function show_correct(){
+function show_feedback(userAnswer) {
+    answer_option_labels.forEach(label => {
+        const radio = label.querySelector('input[type="radio"]');
+        const iconSlot = label.querySelector('.answer-icon-slot');
+        if (!iconSlot) return;
+
+        iconSlot.classList.remove('correct', 'error');
+
+        if (radio.value === currentQuestion.answer) {
+            iconSlot.classList.add('correct');
+        } else if (radio.value === userAnswer) {
+            iconSlot.classList.add('error');
+        }
+        label.style.cursor = 'not-allowed';
+        radio.disabled = true;
+    });
 }
 
-function process_submission(){
+function process_submission() {
     const userAnswer = get_selected_answer();
     if (!userAnswer) {
-        alert('Please select an answer first.');
-        return;
+        show_required();
+        return false;
     }
+
     if (userAnswer === currentQuestion.answer) {
         score++;
     }
-}
 
+    show_feedback(userAnswer);
+    return true;
+}
 
 async function start_quiz(subjectName) {
     await data_ready;
@@ -172,23 +214,22 @@ async function start_quiz(subjectName) {
 
 start_menu_subjects.forEach(btn => {
     btn.addEventListener('click', () => {
-        const subjectName = btn.querySelector('.subject-name').textContent.trim();
-        start_quiz(subjectName);
+            const subjectName = btn.querySelector('.subject-name').textContent.trim();
+            start_quiz(subjectName);
     });
 });
 
 question_form.addEventListener('submit', (e) => {
     e.preventDefault();
-
     if (!currentQuestion) return;
 
-    const userAnswer = get_selected_answer();
-    if (!userAnswer) {
-        alert('Please select an answer first.');
+    if (!hasSubmittedCurrent) {
+        const ok = process_submission();
+        if (!ok) return;
+
+        hasSubmittedCurrent = true;
+        submit_button.textContent = 'Next Question';
         return;
-    }
-    if (userAnswer === currentQuestion.answer) {
-        score++;
     }
 
     currentIndex++;
@@ -200,6 +241,8 @@ question_form.addEventListener('submit', (e) => {
         show_start_screen();
         currentQueue = null;
         currentQuestion = null;
+        hasSubmittedCurrent = false;
+        submit_button.textContent = 'Submit Answer';
         return;
     }
 
@@ -207,6 +250,7 @@ question_form.addEventListener('submit', (e) => {
     clear_selected_answer();
     render_question();
 });
+
 
 theme_mod_switch.addEventListener('change', () => {
     if (theme_mod_switch.checked) {
