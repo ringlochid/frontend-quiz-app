@@ -95,7 +95,7 @@ let score = 0;
 let hasSubmittedCurrent = false;
 
 // last question?
-let islastquestion = false;
+//let islastquestion = false;
 
 function show_quiz_screen() {
     start_menu.style.display = 'none';
@@ -248,7 +248,12 @@ question_form.addEventListener('submit', (e) => {
         if (!ok) return;
 
         hasSubmittedCurrent = true;
-        submit_button.textContent = 'Next Question';
+        if (currentQueue.is_empty()){
+            submit_button.textContent = 'See Result';
+        }
+        else{
+            submit_button.textContent = 'Next Question';
+        }
         return;
     }
 

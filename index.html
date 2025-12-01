@@ -11,7 +11,7 @@
 
   <script src="./script.js" defer></script>
   
-  <title>Frontend Mentor | Frontend quiz app</title>
+  <title>Frontend quiz</title>
 </head>
 <body>
   <main class="lightmod">
@@ -65,66 +65,70 @@
       </div>
     </div>
 
-  <div class="deactivated">
-    <form class="question-menu">
-      <div class="question-section">
-        <div class="question-asking">
-          <p class="question-count">Question 1 of 10</p>
-          <h2 class="question-body">
-            Which of these color contrast ratios defines the minimum WCAG 2.1
-            Level AA requirement for normal text?
-          </h2>
+    <div class="deactivated">
+      <form class="question-menu">
+        <div class="question-section">
+          <div class="question-asking">
+            <p class="question-count">Question 1 of 10</p>
+            <h2 class="question-body">
+              Which of these color contrast ratios defines the minimum WCAG 2.1
+              Level AA requirement for normal text?
+            </h2>
+          </div>
+          <div class="progress">
+            <div class="progress__bar" style="width: 35%;"></div>
+          </div>
         </div>
-        <div class="progress">
-          <div class="progress__bar" style="width: 35%;"></div>
+
+        <div class="problem-list">
+          <label class="answer-option">
+            <input type="radio" name="answer" value="A" />
+            <div class="answer-option-content">
+              <span class="option-letter">A</span>
+              <span class="option-text">Hyper Trainer Marking Language</span>
+            </div>
+            <div class="answer-icon-slot"></div>
+          </label>
+
+          <label class="answer-option">
+            <input type="radio" name="answer" value="B" />
+            <div class="answer-option-content">
+              <span class="option-letter">B</span>
+              <span class="option-text">Hyper Text Marketing Language</span>
+            </div>
+            <div class="answer-icon-slot"></div>
+          </label>
+
+          <label class="answer-option">
+            <input type="radio" name="answer" value="C" />
+            <div class="answer-option-content">
+              <span class="option-letter">C</span>
+              <span class="option-text">Hyper Text Markup Language</span>
+            </div>
+            <div class="answer-icon-slot"></div>
+          </label>
+
+          <label class="answer-option">
+            <input type="radio" name="answer" value="D" />
+            <div class="answer-option-content">
+              <span class="option-letter">D</span>
+              <span class="option-text">Hyper Text Markup Leveler</span>
+            </div>
+            <div class="answer-icon-slot"></div>
+          </label>
+
+          <button type="submit" class="submit-btn">Submit Answer</button>
+          <div class="required-msg">
+            <div class="icon-required"></div>
+            <p>please select an answer</p>
+          </div>
         </div>
-      </div>
+      </form>
+    </div>
 
-      <div class="problem-list">
-        <label class="answer-option">
-          <input type="radio" name="answer" value="A" />
-          <div class="answer-option-content">
-            <span class="option-letter">A</span>
-            <span class="option-text">Hyper Trainer Marking Language</span>
-          </div>
-          <div class="answer-icon-slot"></div>
-        </label>
-
-        <label class="answer-option">
-          <input type="radio" name="answer" value="B" />
-          <div class="answer-option-content">
-            <span class="option-letter">B</span>
-            <span class="option-text">Hyper Text Marketing Language</span>
-          </div>
-          <div class="answer-icon-slot"></div>
-        </label>
-
-        <label class="answer-option">
-          <input type="radio" name="answer" value="C" />
-          <div class="answer-option-content">
-            <span class="option-letter">C</span>
-            <span class="option-text">Hyper Text Markup Language</span>
-          </div>
-          <div class="answer-icon-slot"></div>
-        </label>
-
-        <label class="answer-option">
-          <input type="radio" name="answer" value="D" />
-          <div class="answer-option-content">
-            <span class="option-letter">D</span>
-            <span class="option-text">Hyper Text Markup Leveler</span>
-          </div>
-          <div class="answer-icon-slot"></div>
-        </label>
-
-        <button type="submit" class="submit-btn">Submit Answer</button>
-        <div class="required-msg">
-          <div class="icon-required"></div>
-          <p>please select an answer</p>
-        </div>
-      </div>
-    </form>
-  </div>
+    <div class="deactivated">
+      
+    </div>
 
   </main>
 </body>

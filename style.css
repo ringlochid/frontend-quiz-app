@@ -315,7 +315,7 @@ main.darkmod .icon-dark   { display: inline; }
     width: min(90vw, 72.3125rem);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: auto 1fr; /* question block + wide options block */
+    grid-template-columns: auto 1fr;
     align-items: start;
     gap: var(--space-800);
 }
@@ -383,7 +383,7 @@ main.darkmod .progress{
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* content on left, icon slot on right */
+    justify-content: space-between;
     padding: var(--space-300);
     border-radius: var(--radius-lg);
     background: var(--color-surface);
@@ -526,6 +526,79 @@ main.darkmod .option-letter {
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+}
+
+
+.score-menu {
+    width: min(90vw, 72.3125rem);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: var(--spacing-1800, 9rem);
+}
+
+.score-container {
+    width: minmax(auto, 28.125rem);
+    height: 8.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.score-container h1 {
+    color: var(--colors-blue-900, #313E51);
+    padding: 0;
+    margin: 0;
+    font-family: Rubik;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%;
+}
+
+.score-container h2 {
+    color: var(--colors-blue-900, #313E51);
+    padding: 0;
+    margin: 0;
+    font-family: Rubik;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    padding: 0;
+    margin: 0;
+    gap: var(--space-400);
+    border-radius: 1.5rem;
+    background: var(--colors-white, #FFF);
+    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+}
+
+.result-content {
+    display: flex;
+    width: 100%;
+    padding: var(--spacing-600, 3rem);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-500, 2.5rem);
+}
+
+.return-btn {
+    appearance: none;
+    border-radius: 1.5rem;
+    background: var(--colors-white, #FFF);
+    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+    border-radius: 1.5rem;
+    background: var(--colors-purple-600, #A729F5);
+    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
 }
 
 @media (max-width: 900px) {
