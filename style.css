@@ -591,6 +591,47 @@ main.darkmod .option-letter {
     gap: var(--spacing-500, 2.5rem);
 }
 
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-300, 1.5rem);
+}
+
+.result-header-icon-container {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+}
+
+.result-header-icon-container img {
+}
+
+.result-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-200, 1rem);
+    align-self: stretch;
+}
+
+.score-number {
+    color: var(--colors-blue-900, #313E51);
+    font-family: Rubik;
+    font-size: 9rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+.score-description {
+    color: var(--colors-grey-500, #626C7F);
+    font-family: Rubik;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
 .return-btn {
     appearance: none;
     border-radius: 1.5rem;
