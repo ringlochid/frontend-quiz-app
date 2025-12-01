@@ -206,7 +206,51 @@ button.subject-item:focus {
 }
 
 .header-content {
+    display: none;
+}
 
+.header-content.show {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-300);
+    align-items: center;
+}
+
+.header-content .icon-container {
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+}
+
+.header-content .icon-container.HTML{
+    background-image: url('./assets/images/icon-html.svg');
+    background-color: #FFF5ED;
+}
+
+.header-content .icon-container.CSS{
+    background-image: url('./assets/images/icon-css.svg');
+    background-color: #E0FDEF;
+}
+
+.header-content .icon-container.JavaScript{
+    background-image: url('./assets/images/icon-js.svg');
+    background-color: #EBF0FF;
+}
+
+.header-content .icon-container.Accessibility{
+    background-image: url('./assets/images/icon-accessibility.svg');
+    background-color: #F6E7FF;
+}
+
+.header-content p {
+    font-family: Rubik;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
 }
 
 .mod-toggle {
