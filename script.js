@@ -1,4 +1,7 @@
 const main_content = document.querySelector('main');
+const header_content = document.querySelector('.header-content');
+const header_subject = header_content.querySelector('p');
+const header_icon = header_content.querySelector('.icon-container');
 const theme_mod_switch = document.getElementById('theme-toggle');
 
 const start_menu = document.querySelector('.start-menu');
@@ -108,12 +111,19 @@ let hasSubmittedCurrent = false;
 //let islastquestion = false;
 
 function show_quiz_screen() {
+    header_content.classList.add('show');
+    header_subject.textContent = currentSubjectName;
+    header_icon.classList.remove('HTML', 'CSS', 'JavaScript', 'Accessibility');
+    header_icon.classList.add(`${currentSubjectName}`);
     start_menu.style.display = 'none';
     result_wrapper.classList.add('deactivated');
     quiz_wrapper.classList.remove('deactivated');
 }
 
 function show_start_screen() {
+    header_content.classList.remove('show');
+    header_subject.textContent = '';
+    header_icon.classList.remove('HTML', 'CSS', 'JavaScript', 'Accessibility');
     quiz_wrapper.classList.add('deactivated');
     result_wrapper.classList.add('deactivated');
     start_menu.style.display = 'flex';
