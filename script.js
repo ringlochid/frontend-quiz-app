@@ -234,7 +234,7 @@ start_menu_subjects.forEach(btn => {
 
 answer_option_labels.forEach(label => {
     const radio = label.querySelector('input[type="radio"]');
-    radio.addEventListener('checked', () => {
+    radio.addEventListener('change', () => {
         hide_required();
     });
 });

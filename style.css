@@ -115,7 +115,7 @@ main.darkmod {
 }
 
 .subject-list {
-    width: min(100%, 35.25rem);
+    width: min(48vw, 35.25rem);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -194,26 +194,6 @@ button.subject-item:focus {
     font-style: normal;
     font-weight: 500;
     line-height: 100%;
-}
-
-
-@media (max-width: 900px) {
-  .start-menu {
-    flex-direction: column;
-    gap: 2.5rem;
-    max-width: 48rem;
-    width: 100%;
-    padding-inline: 1.5rem;
-    margin-inline: auto;
-  }
-
-  .subject-list {
-    width: 100%;
-  }
-
-  .welcome-section {
-    max-width: 36rem;
-  }
 }
 
 .topic-section {
@@ -411,7 +391,7 @@ main.darkmod .progress{
     border: 2px solid transparent;
     cursor: pointer;
     transition:
-        all 0.2 ease,
+        all 0.2s ease,
         border-color 0.2s ease,
         transform 0.1s ease,
         background-color 0.3s ease;
@@ -546,6 +526,44 @@ main.darkmod .option-letter {
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+}
+
+@media (max-width: 900px) {
+    .start-menu {
+        flex-direction: column;
+        gap: 2.5rem;
+        max-width: 48rem;
+        width: 100%;
+        padding-inline: 1.5rem;
+        margin-inline: auto;
+    }
+
+    .subject-list {
+        width: 100%;
+    }
+
+    .welcome-section {
+        max-width: 36rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .question-menu {
+        width: 100%;
+        max-width: 36rem;
+        margin-inline: auto;
+        padding-inline: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: var(--space-400);
+    }
+
+    .question-section {
+        max-width: 100%;
+    }
+
+    .problem-list {
+        width: 100%;
+    }
 }
 
 @media (min-width: 1100px) {
