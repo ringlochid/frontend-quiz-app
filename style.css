@@ -136,7 +136,8 @@ main.darkmod {
     background: var(--color-surface);
     box-shadow: var(--shadow-elevated);
     cursor: pointer;
-    transition: all 1s;
+    transition: 
+        background-color 0.6s ease;
 }
 
 main.darkmod .subject-item {
@@ -315,15 +316,15 @@ main.darkmod .icon-dark   { display: inline; }
 }
 
 @keyframes opacity-on {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 1; }
+    0%   { opacity: 1; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
 @keyframes opacity-off {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 1; }
+    0%   { opacity: 1; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
 .deactivated {
@@ -383,6 +384,15 @@ main.darkmod .icon-dark   { display: inline; }
     border-radius: inherit;
 }
 
+.question-menu {
+    width: min(90vw, 72.3125rem);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr; /* question block + wide options block */
+    align-items: start;
+    gap: var(--space-800);
+}
+
 .problem-list {
     display: flex;
     flex-direction: column;
@@ -393,14 +403,17 @@ main.darkmod .icon-dark   { display: inline; }
     position: relative;
     display: flex;
     align-items: center;
-    gap: var(--space-400);
+    justify-content: space-between;  /* content on left, icon slot on right */
     padding: var(--space-300);
     border-radius: var(--radius-lg);
     background: var(--color-surface);
     box-shadow: var(--shadow-elevated);
     border: 2px solid transparent;
     cursor: pointer;
-    transition: border-color 0.2s ease, transform 0.1s ease;
+    transition:
+        border-color 0.2s ease,
+        transform 0.1s ease,
+        background-color 0.3s ease;
 }
 
 .answer-option:hover {
@@ -414,6 +427,18 @@ main.darkmod .icon-dark   { display: inline; }
     pointer-events: none;
 }
 
+.answer-option-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-400);
+}
+
+.answer-icon-slot {
+    width: 2.5rem;   /* reserved space for ✓ / ✕ icon */
+    height: 2.5rem;
+    flex-shrink: 0;
+}
+
 .option-letter {
     display: inline-flex;
     align-items: center;
@@ -422,48 +447,45 @@ main.darkmod .icon-dark   { display: inline; }
     height: 3.5rem;
     border-radius: 0.75rem;
     background: rgba(83, 83, 107, 0.08);
-    color: var(--colors-grey-500, #626C7F);
-    font-family: Rubik;
+    color: var(--colors-grey-500, #626c7f);
+    font-family: Rubik, system-ui, -apple-system, sans-serif;
     font-size: 1.75rem;
-    font-style: normal;
     font-weight: 500;
-    line-height: 100%; 
+    line-height: 100%;
 }
 
-main.darkmod .option-letter{
+main.darkmod .option-letter {
     background: #f4f6fa;
 }
 
 .option-text {
     color: var(--color-text);
-    font-family: Rubik;
+    font-family: Rubik, system-ui, -apple-system, sans-serif;
     font-size: 1.75rem;
-    font-style: normal;
     font-weight: 500;
     line-height: 100%;
 }
 
 .answer-option:has(input[type="radio"]:checked) {
     border-color: #a729f5;
-    box-shadow: 2px 2px 0 2px rgba(167, 41, 245, 0.05);
+    box-shadow: 0 0 0 2px rgba(167, 41, 245, 0.15);
 }
 
 .answer-option:has(input[type="radio"]:checked) .option-letter {
     background: #a729f5;
-    color: white;
+    color: #ffffff;
 }
 
 .submit-btn {
     margin-top: var(--space-200);
-    grid-column: 1 / -1;
+    grid-column: 1 / -1; /* span both columns */
     padding: var(--space-400);
     border: none;
     border-radius: 1.5rem;
     background: linear-gradient(90deg, #a729f5, #9a4ef3);
     color: white;
-    font-family: Rubik;
+    font-family: Rubik, system-ui, -apple-system, sans-serif;
     font-size: 1.75rem;
-    font-style: normal;
     font-weight: 500;
     line-height: 100%;
     cursor: pointer;
