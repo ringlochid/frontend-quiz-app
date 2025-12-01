@@ -557,6 +557,11 @@ main.darkmod .option-letter {
     font-style: normal;
     font-weight: 300;
     line-height: 100%;
+    transition: all 0.3s ease;
+}
+
+main.darkmod .score-container h1 {
+    color: white
 }
 
 .score-container h2 {
@@ -568,6 +573,11 @@ main.darkmod .option-letter {
     font-style: normal;
     font-weight: 500;
     line-height: 100%;
+    transition: all 0.3s ease;
+}
+
+main.darkmod .score-container h2 {
+    color: white
 }
 
 .result-container {
@@ -577,9 +587,6 @@ main.darkmod .option-letter {
     padding: 0;
     margin: 0;
     gap: var(--space-400);
-    border-radius: 1.5rem;
-    background: var(--colors-white, #FFF);
-    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
 }
 
 .result-content {
@@ -589,6 +596,15 @@ main.darkmod .option-letter {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-500, 2.5rem);
+    border-radius: 1.5rem;
+    background: var(--colors-white, #FFF);
+    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+    transition: all 0.3s ease;
+}
+
+main.darkmod .result-content {
+    background: var(--colors-blue-850, #3B4D66);
+    box-shadow: 0 16px 40px 0 rgba(49, 62, 81, 0.14);
 }
 
 .result-header {
@@ -598,12 +614,31 @@ main.darkmod .option-letter {
 }
 
 .result-header-icon-container {
+    background-repeat: no-repeat;
+    background-position: center;
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 
-.result-header-icon-container img {
+.result-header-icon-container.HTML{
+    background-image: url('./assets/images/icon-html.svg');
+    background-color: #FFF5ED;
+}
+
+.result-header-icon-container.CSS{
+    background-image: url('./assets/images/icon-css.svg');
+    background-color: #E0FDEF;
+}
+
+.result-header-icon-container.JavaScript{
+    background-image: url('./assets/images/icon-js.svg');
+    background-color: #EBF0FF;
+}
+
+.result-header-icon-container.Accessibility{
+    background-image: url('./assets/images/icon-accessibility.svg');
+    background-color: #F6E7FF;
 }
 
 .result-detail {
@@ -621,6 +656,11 @@ main.darkmod .option-letter {
     font-style: normal;
     font-weight: 500;
     line-height: 100%;
+    transition: all 0.3s ease;
+}
+
+main.darkmod .score-number {
+    color: white
 }
 
 .score-description {
@@ -630,16 +670,36 @@ main.darkmod .option-letter {
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+    transition: all 0.3s ease;
+}
+
+main.darkmod .score-description {
+    color: var(--colors-blue-300, #ABC1E1);
 }
 
 .return-btn {
     appearance: none;
-    border-radius: 1.5rem;
-    background: var(--colors-white, #FFF);
-    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+    display: flex;
+    padding: var(--spacing-400, 2rem);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-100, 0.5rem);
+    align-self: stretch;
+    border: 0;
     border-radius: 1.5rem;
     background: var(--colors-purple-600, #A729F5);
     box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+    color: var(--colors-white, #FFF);
+    font-family: Rubik;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    cursor: pointer;
+}
+
+main.darkmod .return-btn {
+    box-shadow: 0 16px 40px 0 rgba(49, 62, 81, 0.14);
 }
 
 @media (max-width: 900px) {
@@ -676,6 +736,23 @@ main.darkmod .option-letter {
     }
 
     .problem-list {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .score-menu {
+        width: 100%;
+        max-width: 36rem;
+        grid-template-columns: 1fr;
+        gap: var(--space-800);
+    }
+
+    .score-container {
+        max-width: 100%;
+    }
+
+    .result-container {
         width: 100%;
     }
 }

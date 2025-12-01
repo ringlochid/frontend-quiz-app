@@ -4,13 +4,22 @@ const theme_mod_switch = document.getElementById('theme-toggle');
 const start_menu = document.querySelector('.start-menu');
 const start_menu_subjects = document.querySelectorAll('button.subject-item');
 
-const quiz_wrapper = document.querySelector('.deactivated');
+const screens = document.querySelectorAll('.deactivated');
+const quiz_wrapper = screens[0];
+const result_wrapper = screens[1];
+
 const question_form = document.querySelector('.question-menu');
 const question_count_el = document.querySelector('.question-count');
 const question_body_el = document.querySelector('.question-body');
 const progress_bar_el = document.querySelector('.progress__bar');
 const answer_option_labels = document.querySelectorAll('.answer-option');
 const submit_button = document.querySelector('.submit-btn');
+
+const result_subject_name = result_wrapper.querySelector('.result-header .subject-name');
+const result_icon = result_wrapper.querySelector('.result-header-icon-container');
+const result_score_el = result_wrapper.querySelector('.score-number');
+const result_desc_el = result_wrapper.querySelector('.score-description');
+const play_again_btn = result_wrapper.querySelector('.return-btn');
 
 let data_cache = null;
 let questions_cache = [];
@@ -90,6 +99,7 @@ let currentQuestion = null;
 let currentIndex = 0;
 let totalQuestions = 0;
 let score = 0;
+let currentSubjectName = '';
 
 // submit or next mode?
 let hasSubmittedCurrent = false;
@@ -99,12 +109,19 @@ let hasSubmittedCurrent = false;
 
 function show_quiz_screen() {
     start_menu.style.display = 'none';
+    result_wrapper.classList.add('deactivated');
     quiz_wrapper.classList.remove('deactivated');
 }
 
 function show_start_screen() {
     quiz_wrapper.classList.add('deactivated');
+    result_wrapper.classList.add('deactivated');
     start_menu.style.display = 'flex';
+}
+function show_result_screen() {
+    quiz_wrapper.classList.add('deactivated');
+    start_menu.style.display = 'none';
+    result_wrapper.classList.remove('deactivated');
 }
 
 function clear_selected_answer() {
@@ -218,6 +235,7 @@ async function start_quiz(subjectName) {
     currentIndex = 0;
     score = 0;
 
+    currentSubjectName = subjectName;
     currentQuestion = currentQueue.dequeue();
 
     clear_selected_answer();
@@ -261,9 +279,13 @@ question_form.addEventListener('submit', (e) => {
 
     if (currentQueue.is_empty()) {
         progress_bar_el.style.width = '100%';
-        alert(`Quiz finished! You scored ${score} / ${totalQuestions}.`);
+        result_subject_name.textContent = currentSubjectName;
+        result_icon.classList.remove('HTML', 'CSS', 'JavaScript', 'Accessibility');
+        result_icon.classList.add(`${currentSubjectName}`);
+        result_score_el.textContent = score;
+        result_desc_el.textContent = `out of ${totalQuestions}`;
 
-        show_start_screen();
+        show_result_screen();
         currentQueue = null;
         currentQuestion = null;
         hasSubmittedCurrent = false;
@@ -274,6 +296,15 @@ question_form.addEventListener('submit', (e) => {
     currentQuestion = currentQueue.dequeue();
     clear_selected_answer();
     render_question();
+});
+
+play_again_btn.addEventListener('click', () => {
+    show_start_screen();
+    currentQueue = null;
+    currentQuestion = null;
+    hasSubmittedCurrent = false;
+    submit_button.textContent = 'Submit Answer';
+    clear_selected_answer();
 });
 
 
