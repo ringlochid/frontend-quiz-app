@@ -121,6 +121,7 @@ function reset_answer_states() {
         const iconSlot = label.querySelector('.answer-icon-slot');
         if (iconSlot) {
             iconSlot.classList.remove('correct', 'error');
+            label.classList.remove('correct', 'error');
     }
   });
 }
@@ -155,8 +156,15 @@ function get_selected_answer() {
 }
 
 function show_required() {
-    alert('Please select an answer first.');
+    const msg = question_form.querySelector('.required-msg');
+    msg.style.display = 'flex';
 }
+
+function hide_required() {
+    const msg = question_form.querySelector('.required-msg');
+    msg.style.display = 'none';
+}
+
 
 function show_feedback(userAnswer) {
     answer_option_labels.forEach(label => {
@@ -168,8 +176,13 @@ function show_feedback(userAnswer) {
 
         if (radio.value === currentQuestion.answer) {
             iconSlot.classList.add('correct');
+            if (radio.value === userAnswer) {
+                label.classList.add('correct');
+                return;
+            }
         } else if (radio.value === userAnswer) {
             iconSlot.classList.add('error');
+            label.classList.add('error');
         }
         label.style.cursor = 'not-allowed';
         radio.disabled = true;
@@ -216,6 +229,13 @@ start_menu_subjects.forEach(btn => {
     btn.addEventListener('click', () => {
             const subjectName = btn.querySelector('.subject-name').textContent.trim();
             start_quiz(subjectName);
+    });
+});
+
+answer_option_labels.forEach(label => {
+    const radio = label.querySelector('input[type="radio"]');
+    radio.addEventListener('checked', () => {
+        hide_required();
     });
 });
 

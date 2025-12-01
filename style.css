@@ -373,15 +373,24 @@ main.darkmod .icon-dark   { display: inline; }
 .progress {
     width: 100%;
     height: 0.75rem;
-    background-color: rgba(83, 83, 107, 0.1);
     border-radius: 999px;
     overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+main.lightmod .progress{
+    background-color: white;
+}
+
+main.darkmod .progress{
+    background-color: #3b4d66;
 }
 
 .progress__bar {
     height: 100%;
     background: linear-gradient(90deg, #a729f5, #9a4ef3);
     border-radius: inherit;
+    transition: all 0.6s ease;
 }
 
 .problem-list {
@@ -402,6 +411,7 @@ main.darkmod .icon-dark   { display: inline; }
     border: 2px solid transparent;
     cursor: pointer;
     transition:
+        all 0.2 ease,
         border-color 0.2s ease,
         transform 0.1s ease,
         background-color 0.3s ease;
@@ -430,16 +440,6 @@ main.darkmod .icon-dark   { display: inline; }
     flex-shrink: 0;
 }
 
-.answer-icon-slot.correct {
-    background-image: url('./assets/images/icon-correct.svg');
-    background-repeat: no-repeat;
-}
-
-.answer-icon-slot.error {
-    background-image: url('./assets/images/icon-error.svg');
-    background-repeat: no-repeat;
-}
-
 .option-letter {
     display: inline-flex;
     align-items: center;
@@ -453,6 +453,7 @@ main.darkmod .icon-dark   { display: inline; }
     font-size: 1.75rem;
     font-weight: 500;
     line-height: 100%;
+    transition: all 0.3s ease;
 }
 
 main.darkmod .option-letter {
@@ -477,6 +478,36 @@ main.darkmod .option-letter {
     color: #ffffff;
 }
 
+.answer-option.correct:has(input[type="radio"]:checked) {
+    border: 3px solid var(--colors-green-500, #2FD887);
+    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+}
+
+.answer-option.correct:has(input[type="radio"]:checked) .option-letter {
+    background: #2FD887;
+    color: #ffffff;
+}
+
+.answer-option.error:has(input[type="radio"]:checked) {
+    border: 3px solid var(--colors-red-500, #EE5454);
+    box-shadow: 0 16px 40px 0 rgba(143, 160, 193, 0.14);
+}
+
+.answer-option.error:has(input[type="radio"]:checked) .option-letter {
+    background: #EE5454;
+    color: #ffffff;
+}
+
+.answer-icon-slot.correct {
+    background-image: url('./assets/images/icon-correct.svg');
+    background-repeat: no-repeat;
+}
+
+.answer-icon-slot.error {
+    background-image: url('./assets/images/icon-error.svg');
+    background-repeat: no-repeat;
+}
+
 .submit-btn {
     margin-top: var(--space-200);
     align-self: stretch;
@@ -491,6 +522,30 @@ main.darkmod .option-letter {
     line-height: 100%;
     cursor: pointer;
     box-shadow: var(--shadow-elevated);
+}
+
+.required-msg {
+    display: none;
+    gap: var(--space-100);
+    padding: 0;
+    align-items: center;
+    align-self: center;
+}
+
+.required-msg .icon-required{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-image: url('./assets/images/icon-error.svg');
+    background-repeat: no-repeat;
+}
+
+.required-msg p {
+    color: var(--colors-red-500, #EE5454);
+    font-family: Rubik;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
 }
 
 @media (min-width: 1100px) {
